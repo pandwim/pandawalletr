@@ -1,7 +1,7 @@
 import React, { FC, Suspense, useContext, useId, forwardRef } from 'react';
 import styled, { useTheme } from 'styled-components';
 
-const PANDAWALLETRLottieIcon = React.lazy(() => import('./lottie/PANDAWALLETRLottie'));
+const PANDAWALLETRLottieIcon = React.lazy(() => import('./lottie/TonkeeperLottie'));
 
 export const DarkThemeContext = React.createContext<boolean>(true);
 
