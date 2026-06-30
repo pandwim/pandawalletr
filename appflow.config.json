@@ -1,7 +1,9 @@
 {
-  "name": "PandaWallet",
-  "integrations": {
-    "capacitor": {}
-  },
-  "root": "apps/mobile"
+  "apps": [
+    {
+      "appId": "8f5864d1",
+      "root": "apps/mobile",
+      "androidPath": "android"
+    }
+  ]
 }
