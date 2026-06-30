@@ -3,7 +3,9 @@
     {
       "appId": "8f5864d1",
       "root": "apps/mobile",
-      "androidPath": "android"
+      "androidPath": "android",
+      "dependencyInstallCommand": "cd ../.. && corepack enable && yarn install",
+      "webBuildCommand": "cd ../.. && npx turbo build:pkg && cd apps/mobile && yarn build"
     }
   ]
 }
