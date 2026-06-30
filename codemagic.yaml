@@ -1,0 +1,30 @@
+workflows:
+  android-apk:
+    name: PandaWallet Android APK
+    max_build_duration: 60
+    instance_type: linux_x2
+    environment:
+      node: 20
+      java: 21
+    scripts:
+      - name: Enable corepack
+        script: corepack enable
+      - name: Install deps
+        script: yarn install
+      - name: Build packages
+        script: npx turbo build:pkg
+      - name: Build mobile web
+        script: cd apps/mobile && yarn build
+      - name: Add android platform
+        script: |
+          cd apps/mobile
+          yarn add @capacitor/android
+          yarn cap add android
+          yarn cap sync android
+      - name: Build APK
+        script: |
+          cd apps/mobile/android
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+    artifacts:
+      - apps/mobile/android/app/build/outputs/apk/**/*.apk
