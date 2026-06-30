@@ -26,7 +26,7 @@ jobs:
 
       - run: cd apps/mobile && yarn build
 
-      - run: cd apps/mobile && npx cap add android && npx cap sync android
+      - run: cd apps/mobile && yarn cap add android && yarn cap sync android
 
       - run: cd apps/mobile/android && chmod +x gradlew && ./gradlew assembleDebug
 
