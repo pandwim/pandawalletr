@@ -28,7 +28,9 @@ jobs:
 
       - run: cd apps/mobile && yarn add @capacitor/android && yarn cap add android && yarn cap sync android
 
-      - run: cd apps/mobile/android && chmod +x gradlew && ./gradlew assembleDebug
+      - run: rm -rf ~/.gradle/caches/jars-9
+
+      - run: cd apps/mobile/android && chmod +x gradlew && ./gradlew assembleDebug --no-daemon
 
       - uses: actions/upload-artifact@v4
         with:
