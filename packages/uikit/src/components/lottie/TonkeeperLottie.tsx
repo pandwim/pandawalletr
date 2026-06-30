@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import animationPANDAWALLETRLogoData from './PANDAWALLETRLogo.json';
+import animationPANDAWALLETRLogoData from './TonkeeperLogo.json';
 import { Lottie } from './Lottie';
 
 const defaultPANDAWALLETRLogoOptions = {
