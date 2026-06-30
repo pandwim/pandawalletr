@@ -1,0 +1,40 @@
+format_version: '13'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+workflows:
+  build-apk:
+    steps:
+      - activate-ssh-key@4: {}
+      - git-clone@8: {}
+      - nvm@1:
+          inputs:
+            - node_version: "20"
+      - script@1:
+          title: Setup
+          inputs:
+            - content: |-
+                #!/bin/bash
+                set -e
+                corepack enable
+      - script@1:
+          title: Install deps & build
+          inputs:
+            - content: |-
+                #!/bin/bash
+                set -e
+                yarn install
+                npx turbo build:pkg
+                cd apps/mobile && yarn build
+                yarn add @capacitor/android
+                yarn cap add android
+                yarn cap sync android
+      - script@1:
+          title: Build APK
+          inputs:
+            - content: |-
+                #!/bin/bash
+                set -e
+                cd apps/mobile/android
+                chmod +x gradlew
+                ./gradlew assembleDebug --no-daemon
+      - deploy-to-bitrise-io@2: {}
