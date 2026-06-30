@@ -27,7 +27,7 @@ import {
     RedirectToPANDAWALLETRMobile,
     tonkeeperMobileTonConnectDeeplinkScheme,
     tonkeeperMobileTonDeeplinkScheme
-} from './RedirectToPANDAWALLETRMobile';
+} from './RedirectToTonkeeperMobile';
 import { useTonTransactionNotification } from '@tonkeeper/uikit/dist/components/modals/TonTransactionNotificationControlled';
 import { errorMessage } from '@tonkeeper/core/dist/utils/types';
 import { useToast } from '@tonkeeper/uikit/dist/hooks/useNotification';
