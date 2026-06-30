@@ -22,6 +22,8 @@ jobs:
 
       - run: npx turbo build:pkg
 
+      - run: chmod +x apps/mobile/build.sh
+
       - run: cd apps/mobile && yarn build
 
       - run: cd apps/mobile && npx cap add android && npx cap sync android
