@@ -26,6 +26,8 @@ jobs:
 
       - run: cd apps/mobile && yarn build
 
+      - run: cd apps/mobile && yarn remove @capacitor/push-notifications || true
+
       - run: cd apps/mobile && yarn add @capacitor/android && yarn cap add android && yarn cap sync android
 
       - run: rm -rf ~/.gradle
