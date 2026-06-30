@@ -1,0 +1,7 @@
+{
+  "name": "PandaWallet",
+  "integrations": {
+    "capacitor": {}
+  },
+  "root": "apps/mobile"
+}
